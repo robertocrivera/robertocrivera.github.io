@@ -1,60 +1,113 @@
-<section id="contact" class="w-full py-12 border-t border-[#ffffff10]">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Let's talk</h2>
-    <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-6">
-      Contact
+<section id="contact" class="w-full py-16 border-t border-[#ffffff10] text-[var(--white)]">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec font-mono">Contacto Profesional</h2>
+    <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-8">
+      Iniciemos una Conversación
     </h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="text-[var(--white-icon)]">
-        <p class="mb-4">
-          Have a question or a project in mind? Feel free to reach out.
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- INFORMACIÓN Y CANALES DIRECTOS -->
+      <div class="space-y-6 text-[var(--white-icon)]">
+        <p class="text-base md:text-lg leading-relaxed">
+          ¿Tienes una propuesta técnica, una iniciativa de desarrollo o requieres consultoría analítica y metodológica? Puedes escribirme mediante el formulario o contactarme directamente por mis canales oficiales.
         </p>
-        <div class="flex items-center gap-2">
-          <span>Location:</span>
-          <span class="text-[var(--white)]">Your country</span>
+
+        <div class="space-y-3 pt-2">
+          <div class="flex items-center gap-3">
+            <span class="text-[var(--sec)]">📍</span>
+            <span class="text-[var(--white-icon)]">Ubicación:</span>
+            <span class="text-[var(--white)] font-medium">Colombia (Disponible para trabajo remoto / global)</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="text-[var(--sec)]">💼</span>
+            <span class="text-[var(--white-icon)]">Modalidad:</span>
+            <span class="text-[var(--white)] font-medium">Consultoría, desarrollo de software y análisis de datos</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="text-[var(--sec)]">💻</span>
+            <span class="text-[var(--white-icon)]">GitHub:</span>
+            <a 
+              href="https://github.com/robertocrivera" 
+              target="_blank" 
+              class="text-[var(--white)] hover:text-[var(--sec)] underline underline-offset-4 transition-colors"
+            >
+              github.com/robertocrivera
+            </a>
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <a
+            href="mailto:robertocriverav@gmail.com"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#1414149c] border border-[var(--white-icon-tr)] text-[var(--white)] hover:bg-[var(--white-icon-tr)] hover:scale-105 transition duration-300"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 text-[var(--sec)]">
+              <path d="m18.73 5.41l-1.28 1L12 10.46L6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"></path>
+            </svg>
+            <span>Escribir por correo directo</span>
+          </a>
         </div>
       </div>
 
-      <div>
+      <!-- FORMULARIO DE CONTACTO -->
+      <div class="bg-[#14141460] border border-[var(--white-icon-tr)] p-6 md:p-8 rounded-2xl">
         <form
           id="contact-form"
           action="https://formspree.io/f/YOUR_FORM_ID_HERE"
           method="POST"
           class="flex flex-col gap-4"
         >
-          <input
-            type="text"
-            name="from_name"
-            placeholder="Name"
-            required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)]"
-          />
-          <input
-            type="email"
-            name="reply_to"
-            placeholder="Email"
-            required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)]"
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            rows="6"
-            required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] resize-none"
-          ></textarea>
+          <div>
+            <label for="from_name" class="block text-xs font-mono text-[var(--white-icon)] mb-1">Nombre</label>
+            <input
+              id="from_name"
+              type="text"
+              name="from_name"
+              placeholder="Tu nombre o empresa"
+              required
+              class="w-full px-4 py-2.5 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--sec)] transition-all"
+            />
+          </div>
+
+          <div>
+            <label for="reply_to" class="block text-xs font-mono text-[var(--white-icon)] mb-1">Correo electrónico</label>
+            <input
+              id="reply_to"
+              type="email"
+              name="reply_to"
+              placeholder="tu-correo@ejemplo.com"
+              required
+              class="w-full px-4 py-2.5 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--sec)] transition-all"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-xs font-mono text-[var(--white-icon)] mb-1">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Cuéntame sobre tu proyecto o consulta técnica..."
+              rows="5"
+              required
+              class="w-full px-4 py-2.5 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--sec)] resize-none transition-all"
+            ></textarea>
+          </div>
+
           <button
             type="submit"
-            class="px-4 py-2 bg-[var(--white-icon-tr)] text-[var(--white)] rounded-lg opacity-60 transition-opacity border border-[var(--white-icon-tr)] hover:opacity-100 hover:bg-[var(--white-icon-tr)]"
+            class="w-full mt-2 py-3 bg-[var(--sec)] text-black font-semibold rounded-xl hover:opacity-90 hover:scale-[1.01] transition-all duration-300 shadow-md shadow-[#a476ff]/20"
           >
-            Submit
+            Enviar Mensaje
           </button>
         </form>
+
         <div
           id="form-message"
-          class="hidden justify-center items-center mt-4 text-[var(--white)] text-lg"
+          class="hidden text-center p-6 border border-emerald-500/30 bg-emerald-500/10 rounded-xl mt-4 text-emerald-300 text-base"
         >
-          ✅ Thank you for your message!
+          ✅ ¡Gracias por tu mensaje! Me pondré en contacto contigo a la brevedad.
         </div>
       </div>
     </div>
@@ -80,13 +133,11 @@
         form.style.display = "none";
         formMessage.classList.remove("hidden");
       } else {
-        const data = await response.json();
-        console.error("Error response:", data);
-        alert("There was a problem sending your message.");
+        alert("Para enviar por este formulario se requiere configurar un ID de Formspree. También puedes usar el botón de correo directo.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("There was a problem sending your message.");
+      alert("Hubo un problema al enviar. Puedes contactarme directamente por correo.");
     }
   });
 </script>
