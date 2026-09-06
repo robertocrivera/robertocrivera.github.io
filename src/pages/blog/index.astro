@@ -3,22 +3,24 @@ import Layout from "@/layouts/Layout.astro";
 import Nav from "@/components/nav.astro";
 import Footer from "@/components/footer.astro";
 
-interface PostFrontmatter {
+interface Frontmatter {
   title: string;
   description: string;
   date: string;
   tag?: string;
 }
 
-interface MarkdownPost {
+interface MarkdownInstance {
   url?: string;
-  frontmatter: PostFrontmatter;
+  frontmatter: Frontmatter;
 }
 
-// Importa y tipa explícitamente las publicaciones en Markdown
-const rawPosts = await Astro.glob<PostFrontmatter>("./posts/*.md");
-const posts: MarkdownPost[] = rawPosts.sort(
-  (a: MarkdownPost, b: MarkdownPost) =>
+// Carga nativa mediante import.meta.glob (estándar moderno de Astro y Vite)
+const modules = import.meta.glob<MarkdownInstance>("./posts/*.md", { eager: true });
+const rawPosts = Object.values(modules);
+
+const posts = rawPosts.sort(
+  (a, b) =>
     new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
 );
 ---
@@ -41,7 +43,7 @@ const posts: MarkdownPost[] = rawPosts.sort(
 
     <div class="grid grid-cols-1 gap-6">
       {
-        posts.map((post: MarkdownPost) => (
+        posts.map((post) => (
           <article class="p-6 md:p-8 rounded-2xl border border-[var(--white-icon-tr)] bg-[#14141460] hover:border-[var(--sec)]/40 hover:bg-[#14141499] transition-all duration-300 group">
             <a href={post.url} class="block space-y-3">
               <div class="flex flex-wrap items-center gap-3 text-xs text-[var(--white-icon)] font-mono">
