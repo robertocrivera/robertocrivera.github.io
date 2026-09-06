@@ -1,5 +1,5 @@
 ---
-import LetterGlitch from "../React/LetterGlitch.tsx";
+import CodeTerminal from "../React/CodeTerminal.tsx";
 import LogoWall from "../components/logoWall.astro";
 import SkillsList from "../React/SkillsList.tsx";
 ---
@@ -57,7 +57,7 @@ import SkillsList from "../React/SkillsList.tsx";
           </a>
           <a
             target="_blank"
-            href="mailto:tu-correo@ejemplo.com"
+            href="mailto:robertocriverav@gmail.com"
             aria-label="Email"
             class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105"
           >
@@ -87,20 +87,16 @@ import SkillsList from "../React/SkillsList.tsx";
 
     </div>
 
-    <!-- LOGOS Y HABILIDADES -->
+    <!-- LOGOS TECNOLÓGICOS -->
     <LogoWall />
 
-    <div class="flex flex-col lg:flex-row items-center gap-8">
-      <SkillsList client:load />
-      <div class="flex justify-center md:w-full md:h-[292px] size-[290px] pt-3 md:pt-9 md:ml-16">
-        <LetterGlitch
-          client:load
-          glitchColors={["#5e4491", "#A476FF", "#241a38"]}
-          glitchSpeed={33}
-          centerVignette={false}
-          outerVignette={true}
-          smooth={true}
-        />
+    <!-- HABILIDADES Y TERMINAL DE CÓDIGO -->
+    <div class="flex flex-col lg:flex-row items-start justify-between gap-8 pt-4">
+      <div class="w-full lg:w-auto">
+        <SkillsList client:load />
+      </div>
+      <div class="w-full lg:flex-1 flex justify-center lg:justify-end pt-3 md:pt-14">
+        <CodeTerminal client:load />
       </div>
     </div>
 
