@@ -6,7 +6,7 @@ import Footer from "@/components/footer.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={`${frontmatter.title} | Roberto Carlos Rivera`}>
+<Layout title={`${frontmatter.title} | Roberto Carlos Rivera Valderrama`}>
   <Nav />
 
   <main class="max-w-3xl mx-auto px-4 pt-28 pb-20 text-[var(--white)] min-h-screen">
@@ -20,7 +20,7 @@ const { frontmatter } = Astro.props;
       <span>Volver a las publicaciones</span>
     </a>
 
-    <!-- ENCABEZADO DEL POST -->
+    <!-- ENCABEZADO DEL ARTÍCULO -->
     <header class="space-y-4 pb-8 border-b border-[#ffffff15]">
       <div class="flex items-center gap-3 text-xs md:text-sm text-[var(--white-icon)] font-mono">
         <time datetime={frontmatter.date}>
@@ -32,7 +32,7 @@ const { frontmatter } = Astro.props;
         </time>
         <span>•</span>
         <span class="px-2.5 py-0.5 rounded-full bg-[var(--white-icon-tr)] text-[var(--sec)]">
-          {frontmatter.tag || "Investigación"}
+          {frontmatter.tag || "Investigación & Datos"}
         </span>
       </div>
 
@@ -45,7 +45,7 @@ const { frontmatter } = Astro.props;
       </p>
     </header>
 
-    <!-- CONTENIDO DEL ARTÍCULO (ESTILOS TIPOGRÁFICOS) -->
+    <!-- CUERPO DE LA PUBLICACIÓN -->
     <article class="prose prose-invert max-w-none py-10 space-y-6 text-gray-300 leading-relaxed text-base md:text-lg">
       <slot />
     </article>
@@ -54,14 +54,13 @@ const { frontmatter } = Astro.props;
     <section class="mt-16 pt-10 border-t border-[#ffffff15]">
       <h3 class="text-2xl font-semibold mb-6 text-[var(--white)]">Comentarios</h3>
       <div id="comments-container">
-        <!-- El script de Giscus se montará aquí -->
         <script
           is:inline
           src="https://giscus.app/client.js"
           data-repo="robertocrivera/robertocrivera.github.io"
-          data-repo-id="R_kgDOG... (se genera en el paso de Giscus)"
+          data-repo-id="R_kgDOUP2t8A"
           data-category="Announcements"
-          data-category-id="DIC_kwDO... (se genera en el paso de Giscus)"
+          data-category-id="DIC_kwDOUP2t8M4DE_IM"
           data-mapping="pathname"
           data-strict="0"
           data-reactions-enabled="1"
@@ -80,7 +79,6 @@ const { frontmatter } = Astro.props;
 </Layout>
 
 <style is:global>
-  /* Formato editorial para el texto del artículo */
   article h2 {
     color: var(--white);
     font-size: 1.75rem;
@@ -107,6 +105,13 @@ const { frontmatter } = Astro.props;
   article ul { list-style-type: disc; }
   article ol { list-style-type: decimal; }
   article li { margin-bottom: 0.4rem; }
+  article blockquote {
+    border-left: 3px solid var(--sec);
+    padding-left: 1rem;
+    color: #9ca3af;
+    font-style: italic;
+    margin: 1.5rem 0;
+  }
   article code {
     background-color: #1a1a1a;
     color: #a476ff;
