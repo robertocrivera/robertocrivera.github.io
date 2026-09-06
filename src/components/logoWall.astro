@@ -1,19 +1,20 @@
 ---
 const technologies = [
-  "astro",
-  "vue",
-  "react",
-  "typeScript",
-  "tailwindcss",
-  "next",
-  "nodejs",
-  "HTML5",
-  "CSS3",
-  "javaScript",
-  "git",
-  "supabase",
-  "mysql",
-  "bash",
+  { name: "Python", icon: "python", color: "3776AB" },
+  { name: "R Project", icon: "r", color: "276DC3" },
+  { name: "PostgreSQL", icon: "postgresql", color: "4169E1" },
+  { name: "MySQL", icon: "mysql", color: "4479A1" },
+  { name: "SQLite", icon: "sqlite", color: "003B57" },
+  { name: "Oracle", icon: "oracle", color: "F80000" },
+  { name: "JavaScript", icon: "javascript", color: "F7DF1E" },
+  { name: "TypeScript", icon: "typescript", color: "3178C6" },
+  { name: "HTML5", icon: "html5", color: "E34F26" },
+  { name: "CSS3", icon: "css3", color: "1572B6" },
+  { name: "Tailwind CSS", icon: "tailwindcss", color: "06B6D4" },
+  { name: "Node.js", icon: "nodedotjs", color: "5FA04E" },
+  { name: "Git", icon: "git", color: "F05032" },
+  { name: "GitHub", icon: "github", color: "FFFFFF" },
+  { name: "Astro", icon: "astro", color: "BC52EE" },
 ];
 ---
 
@@ -29,16 +30,16 @@ const technologies = [
           aria-hidden={index >= technologies.length ? "true" : "false"}
         >
           <img
-            src={`/svg/${tech}.svg`}
-            alt={tech}
-            class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
-            width="30"
-            height="30"
+            src={`https://cdn.simpleicons.org/${tech.icon}/${tech.color}`}
+            alt={tech.name}
+            class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-75 group-hover:opacity-100"
+            width="28"
+            height="28"
             loading={index < technologies.length ? "eager" : "lazy"}
             decoding="async"
           />
-          <span class="text-lg font-medium text-[var(--white-icon)] whitespace-nowrap">
-            {tech.charAt(0).toUpperCase() + tech.slice(1)}
+          <span class="text-lg font-medium text-[var(--white-icon)] whitespace-nowrap group-hover:text-white transition-colors">
+            {tech.name}
           </span>
         </div>
       ))
@@ -56,12 +57,12 @@ const technologies = [
     }
   }
   .animate-scroll {
-    animation: scroll 60s linear infinite;
+    animation: scroll 45s linear infinite;
   }
 
   @media (min-width: 768px) {
     .animate-scroll {
-      animation-duration: 50s;
+      animation-duration: 40s;
     }
   }
 </style>
