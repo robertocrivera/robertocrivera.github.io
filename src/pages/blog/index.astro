@@ -3,10 +3,23 @@ import Layout from "@/layouts/Layout.astro";
 import Nav from "@/components/nav.astro";
 import Footer from "@/components/footer.astro";
 
-// Importa automáticamente todos los posts en markdown
-const rawPosts = await Astro.glob("./posts/*.md");
-const posts = rawPosts.sort(
-  (a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+interface PostFrontmatter {
+  title: string;
+  description: string;
+  date: string;
+  tag?: string;
+}
+
+interface MarkdownPost {
+  url?: string;
+  frontmatter: PostFrontmatter;
+}
+
+// Importa y tipa explícitamente las publicaciones en Markdown
+const rawPosts = await Astro.glob<PostFrontmatter>("./posts/*.md");
+const posts: MarkdownPost[] = rawPosts.sort(
+  (a: MarkdownPost, b: MarkdownPost) =>
+    new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
 );
 ---
 
@@ -28,7 +41,7 @@ const posts = rawPosts.sort(
 
     <div class="grid grid-cols-1 gap-6">
       {
-        posts.map((post) => (
+        posts.map((post: MarkdownPost) => (
           <article class="p-6 md:p-8 rounded-2xl border border-[var(--white-icon-tr)] bg-[#14141460] hover:border-[var(--sec)]/40 hover:bg-[#14141499] transition-all duration-300 group">
             <a href={post.url} class="block space-y-3">
               <div class="flex flex-wrap items-center gap-3 text-xs text-[var(--white-icon)] font-mono">
