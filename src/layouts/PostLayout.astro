@@ -1,1 +1,124 @@
+---
+import Layout from "./Layout.astro";
+import Nav from "@/components/nav.astro";
+import Footer from "@/components/footer.astro";
 
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} | Roberto Carlos Rivera`}>
+  <Nav />
+
+  <main class="max-w-3xl mx-auto px-4 pt-28 pb-20 text-[var(--white)] min-h-screen">
+    <a
+      href="/blog"
+      class="inline-flex items-center gap-2 text-sm text-[var(--white-icon)] hover:text-[var(--sec)] transition-colors mb-8 font-mono"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+        <path d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"></path>
+      </svg>
+      <span>Volver a las publicaciones</span>
+    </a>
+
+    <!-- ENCABEZADO DEL POST -->
+    <header class="space-y-4 pb-8 border-b border-[#ffffff15]">
+      <div class="flex items-center gap-3 text-xs md:text-sm text-[var(--white-icon)] font-mono">
+        <time datetime={frontmatter.date}>
+          {new Date(frontmatter.date).toLocaleDateString("es-ES", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </time>
+        <span>•</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-[var(--white-icon-tr)] text-[var(--sec)]">
+          {frontmatter.tag || "Investigación"}
+        </span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-semibold leading-tight text-pretty">
+        {frontmatter.title}
+      </h1>
+
+      <p class="text-lg text-[var(--white-icon)]">
+        {frontmatter.description}
+      </p>
+    </header>
+
+    <!-- CONTENIDO DEL ARTÍCULO (ESTILOS TIPOGRÁFICOS) -->
+    <article class="prose prose-invert max-w-none py-10 space-y-6 text-gray-300 leading-relaxed text-base md:text-lg">
+      <slot />
+    </article>
+
+    <!-- SECCIÓN DE COMENTARIOS CON GISCUS -->
+    <section class="mt-16 pt-10 border-t border-[#ffffff15]">
+      <h3 class="text-2xl font-semibold mb-6 text-[var(--white)]">Comentarios</h3>
+      <div id="comments-container">
+        <!-- El script de Giscus se montará aquí -->
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="robertocrivera/robertocrivera.github.io"
+          data-repo-id="R_kgDOG... (se genera en el paso de Giscus)"
+          data-category="Announcements"
+          data-category-id="DIC_kwDO... (se genera en el paso de Giscus)"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="dark"
+          data-lang="es"
+          crossorigin="anonymous"
+          async
+        ></script>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style is:global>
+  /* Formato editorial para el texto del artículo */
+  article h2 {
+    color: var(--white);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  article h3 {
+    color: var(--white);
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  article p {
+    margin-bottom: 1.25rem;
+    color: #d1d5db;
+    line-height: 1.8;
+  }
+  article ul, article ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  article ul { list-style-type: disc; }
+  article ol { list-style-type: decimal; }
+  article li { margin-bottom: 0.4rem; }
+  article code {
+    background-color: #1a1a1a;
+    color: #a476ff;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
+  }
+  article pre {
+    background-color: #121212 !important;
+    border: 1px solid var(--white-icon-tr);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+</style>
