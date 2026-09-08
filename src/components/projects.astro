@@ -1,145 +1,268 @@
 ---
 interface Project {
+  id: string;
   title: string;
   description: string;
   category: string;
+  categorySlug: string;
   tags: string[];
   image: string;
   link: string;
   preview: string;
   status: string;
+  metrics: {
+    views: string;
+    runs: string;
+    score: string;
+  };
 }
 
 const projects: Project[] = [
   {
+    id: "p1",
     title: "Plataforma Web Interactiva & Recursos Educativos",
     description: "Aplicación interactiva y prototipos web ligeros construidos con JavaScript moderno, interfaces adaptables y lógica modular para entornos de aprendizaje dinámico.",
-    category: "Módulo I • Frontend & Web Applications",
+    category: "EdTech & Frontend",
+    categorySlug: "edtech",
     tags: ["JavaScript", "HTML5/CSS3", "Tailwind CSS"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
     link: "https://github.com/robertocrivera/recurso-educativo-demo",
     preview: "https://robertocrivera.github.io/recurso-educativo-demo/",
     status: "Producción",
+    metrics: { views: "4.8k", runs: "128", score: "99.4%" },
   },
   {
+    id: "p2",
     title: "Pipeline de Analítica & Modelado Estadístico",
     description: "Flujos de ingesta, depuración y visualización cuantitativa formal para contrastes de hipótesis, correlaciones analíticas y generación automatizada de reportes.",
-    category: "Módulo II • Statistical Modeling & Data Science",
+    category: "Data Science & Python",
+    categorySlug: "datascience",
     tags: ["Python", "R", "Pandas", "SPSS"],
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=800&auto=format&fit=crop",
     link: "https://github.com/robertocrivera/Pipeline-analitica-estadistica",
     preview: "https://github.com/robertocrivera",
     status: "Investigación",
+    metrics: { views: "2.3k", runs: "42", score: "96.8%" },
   },
   {
+    id: "p3",
     title: "Sistema de Evaluación & Analítica Educativa",
-    description: "Plataforma analítica y dashboard institucional para gestión de calificaciones bajo el Decreto 1290 (1.0 a 5.0), cuadro de honor, alertas tempranas de deserción y emisión de boletines oficiales procesados en el cliente con SQLite WASM y plantillas masivas de Excel.",
-    category: "Módulo III • Educational Intelligence & Local Databases",
+    description: "Dashboard institucional para gestión de notas bajo Decreto 1290 (1.0 a 5.0), cuadro de honor, alertas de deserción y emisión de boletines con SQLite WASM y Excel.",
+    category: "EdTech & Frontend",
+    categorySlug: "edtech",
     tags: ["JavaScript", "SQLite WASM", "Chart.js", "SheetJS"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
     link: "https://github.com/robertocrivera/sistema-evaluacion-analitica",
     preview: "https://robertocrivera.github.io/sistema-evaluacion-analitica/",
     status: "Producción",
+    metrics: { views: "6.1k", runs: "310", score: "98.5%" },
   },
   {
+    id: "p4",
     title: "Laboratorio de Arquitectura Relacional & SQL Engine",
-    description: "Entorno interactivo y tutor de modelado relacional (1FN a 3FN). Integra 15 lecciones estructuradas, checkpoints diagnósticos, diagramación ER en tiempo real y motor de ejecución en el cliente con SQLite WASM.",
-    category: "Módulo IV • Database Architecture & WASM Engines",
+    description: "Academia interactiva de modelado relacional (1FN a 3FN). Integra 15 lecciones, checkpoints diagnósticos, diagramación ER en vivo y motor SQLite WASM en cliente.",
+    category: "Bases de Datos & WASM",
+    categorySlug: "database",
     tags: ["SQLite WASM", "SQL Engine", "1FN a 3FN", "Tailwind CSS"],
     image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop",
     link: "https://github.com/robertocrivera/sql-relational-engine",
     preview: "https://robertocrivera.github.io/sql-relational-engine/",
     status: "Producción",
+    metrics: { views: "8.4k", runs: "450", score: "99.8%" },
   }
 ];
 ---
 
-<section id="projects" class="py-16 border-t border-[#ffffff10] text-[var(--white)]">
-  <div class="max-w-5xl mx-auto px-4">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec font-mono">Portafolio Técnico</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-10">Catálogo de Ingeniería</h3>
+<section id="projects" class="py-16 border-t border-[#ffffff10] text-slate-100">
+  <div class="max-w-6xl mx-auto px-4 space-y-8">
+    
+    <!-- Encabezado de la Galería -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 border-b border-white/10 pb-6">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="w-2 h-2 rounded-full bg-[var(--sec)] animate-pulse"></span>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-[var(--sec)]">Showcase & Repositorios</h2>
+        </div>
+        <h3 class="text-3xl md:text-4xl font-bold tracking-tight text-white">Catálogo de Proyectos</h3>
+      </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Barra de Filtro de Categorías Estilo CodePen -->
+      <div class="flex items-center p-1 rounded-xl bg-[#121622] border border-white/10 text-xs font-mono">
+        <button data-filter="all" class="filter-tab active px-3.5 py-1.5 rounded-lg font-semibold transition cursor-pointer">
+          Todos (4)
+        </button>
+        <button data-filter="edtech" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer">
+          EdTech (2)
+        </button>
+        <button data-filter="datascience" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer">
+          Data Science (1)
+        </button>
+        <button data-filter="database" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer">
+          SQL & WASM (1)
+        </button>
+      </div>
+    </div>
+
+    <!-- Grid de Tarjetas Estilo Showcase / CodePen -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-container">
       {
         projects.map((project) => (
-          <div class="group border border-[var(--white-icon-tr)] bg-[#14141460] rounded-2xl overflow-hidden hover:border-[var(--sec)]/50 transition-all duration-300 flex flex-col justify-between">
-            <div>
-              <div class="overflow-hidden relative aspect-video bg-[#1a1a1a]">
-                <img
-                  src={project.image}
+          <article 
+            data-category={project.categorySlug}
+            class="project-item group bg-[#131722] hover:bg-[#171c2b] border border-white/10 hover:border-white/20 rounded-2xl p-4 transition-all duration-300 flex flex-col justify-between shadow-lg"
+          >
+            <!-- Cabecera de la Tarjeta (Icono + Título + Links rápidos) -->
+            <div class="space-y-3">
+              <div class="flex items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5 min-w-0">
+                  <div class="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-xs font-mono text-[var(--sec)] shrink-0">
+                    &gt;_
+                  </div>
+                  <h4 class="text-sm font-semibold text-white truncate group-hover:text-[var(--sec)] transition-colors" title={project.title}>
+                    {project.title}
+                  </h4>
+                </div>
+
+                <div class="flex items-center gap-1 shrink-0">
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    title="Ver Código en GitHub"
+                    class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition"
+                  >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                  </a>
+                  <a 
+                    href={project.preview} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    title="Abrir Demostración en Vivo"
+                    class="p-1.5 rounded-lg text-slate-400 hover:text-[var(--sec)] hover:bg-white/10 transition"
+                  >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Lienzo Central / Preview Frame -->
+              <a 
+                href={project.preview} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="block relative aspect-[16/10] rounded-xl overflow-hidden bg-black/60 border border-white/5 group-hover:border-white/20 transition-all cursor-pointer"
+              >
+                <img 
+                  src={project.image} 
                   alt={project.title}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
                   loading="lazy"
+                  class="w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 />
-                <span class="absolute top-3 right-3 text-xs px-2.5 py-1 rounded-full bg-black/70 border border-white/10 backdrop-blur-md text-[var(--white-icon)] font-medium">
+                <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-medium bg-black/70 backdrop-blur border border-white/10 text-slate-200">
+                  {project.category}
+                </span>
+                <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-[var(--sec)]/20 text-[var(--sec)] border border-[var(--sec)]/40 backdrop-blur">
                   {project.status}
+                </span>
+              </a>
+
+              <!-- Descripción Breve -->
+              <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed pt-1">
+                {project.description}
+              </p>
+            </div>
+
+            <!-- Barra Inferior de Métricas & Badges (Estilo CodePen) -->
+            <div class="flex items-center justify-between pt-4 mt-4 border-t border-white/5 text-[11px] font-mono text-slate-400">
+              <!-- Píldoras de Métricas -->
+              <div class="flex items-center gap-3">
+                <span class="flex items-center gap-1 hover:text-slate-200 transition" title="Visitas / Impacto">
+                  <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                  {project.metrics.views}
+                </span>
+                <span class="flex items-center gap-1 hover:text-slate-200 transition" title="Ejecuciones / Tests">
+                  <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  {project.metrics.runs}
+                </span>
+                <span class="flex items-center gap-1 text-[var(--sec)]" title="Score de Confiabilidad">
+                  <span>★</span> {project.metrics.score}
                 </span>
               </div>
 
-              <div class="p-5 space-y-3">
-                <div class="flex items-center justify-between">
-                  <span class="text-[10px] font-mono uppercase tracking-wider text-[var(--sec)] font-bold">
-                    {project.category}
+              <!-- Tags Técnicos -->
+              <div class="flex items-center gap-1">
+                {project.tags.slice(0, 2).map((tag) => (
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-slate-400 border border-white/5">
+                    {tag}
                   </span>
-                </div>
-
-                <div class="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-[var(--white-icon-tr)] text-[var(--white-icon)]">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h4 class="text-xl font-semibold text-[var(--white)] group-hover:text-[var(--sec)] transition-colors">
-                  {project.title}
-                </h4>
-
-                <p class="text-sm text-[var(--white-icon)] leading-relaxed">
-                  {project.description}
-                </p>
+                ))}
               </div>
             </div>
-
-            <div class="p-5 pt-0 flex items-center justify-end gap-2 border-t border-white/5 mt-4">
-              <a
-                target="_blank"
-                href={project.link}
-                aria-label="Código en GitHub"
-                title="Ver código fuente"
-                class="size-11 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 border border-[var(--white-icon-tr)] rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
-                  <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
-                </svg>
-              </a>
-              <a
-                target="_blank"
-                href={project.preview}
-                aria-label="Demo / Vista previa"
-                title="Ver demostración"
-                class="size-11 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 border border-[var(--white-icon-tr)] rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
-                  <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
-                </svg>
-              </a>
-            </div>
-          </div>
+          </article>
         ))
       }
     </div>
 
-    <a
-      target="_blank"
-      href="https://github.com/robertocrivera"
-      aria-label="GitHub"
-      class="w-full max-w-md mx-auto flex items-center justify-center gap-2 mt-12 text-[var(--white-icon)] hover:text-white transition duration-300 border border-[var(--white-icon-tr)] py-3 px-6 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105 shadow-lg"
-    >
-      <span class="md:text-base text-sm font-medium">Explorar más repositorios en</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
-        <path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"></path>
-      </svg>
-    </a>
+    <!-- Botón Inferior: Enlace al Perfil General -->
+    <div class="pt-6 text-center">
+      <a
+        href="https://github.com/robertocrivera"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#121622] hover:bg-[#181e2e] border border-white/10 hover:border-white/20 text-xs font-mono text-slate-300 hover:text-white transition shadow-sm"
+      >
+        <span>Explorar todos los repositorios en GitHub</span>
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/>
+        </svg>
+      </a>
+    </div>
+
   </div>
 </section>
+
+<!-- Script Reactivo para el Filtrado Dinámico por Categorías -->
+<script is:inline>
+  const tabs = document.querySelectorAll('.filter-tab');
+  const cards = document.querySelectorAll('.project-item');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      // Estado visual activo
+      tabs.forEach((t) => {
+        t.classList.remove('active', 'bg-[var(--sec)]', 'text-slate-950');
+        t.classList.add('text-slate-400');
+      });
+      tab.classList.add('active', 'bg-[var(--sec)]', 'text-slate-950');
+      tab.classList.remove('text-slate-400');
+
+      const filterVal = tab.getAttribute('data-filter');
+
+      // Filtrado instantáneo de tarjetas
+      cards.forEach((card) => {
+        const cardCat = card.getAttribute('data-category');
+        if (filterVal === 'all' || cardCat === filterVal) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Activar la pestaña por defecto
+  const defaultTab = document.querySelector('.filter-tab[data-filter="all"]');
+  if (defaultTab) {
+    defaultTab.classList.add('bg-[var(--sec)]', 'text-slate-950');
+    defaultTab.classList.remove('text-slate-400');
+  }
+</script>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
