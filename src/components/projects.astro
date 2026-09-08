@@ -10,9 +10,9 @@ interface Project {
   link: string;
   preview: string;
   status: string;
-  metrics: {
-    views: string;
-    runs: string;
+  initialMetrics: {
+    views: number;
+    runs: number;
     score: string;
   };
 }
@@ -29,7 +29,7 @@ const projects: Project[] = [
     link: "https://github.com/robertocrivera/recurso-educativo-demo",
     preview: "https://robertocrivera.github.io/recurso-educativo-demo/",
     status: "Producción",
-    metrics: { views: "4.8k", runs: "128", score: "99.4%" },
+    initialMetrics: { views: 0, runs: 0, score: "100%" },
   },
   {
     id: "p2",
@@ -42,7 +42,7 @@ const projects: Project[] = [
     link: "https://github.com/robertocrivera/Pipeline-analitica-estadistica",
     preview: "https://github.com/robertocrivera",
     status: "Investigación",
-    metrics: { views: "2.3k", runs: "42", score: "96.8%" },
+    initialMetrics: { views: 0, runs: 0, score: "100%" },
   },
   {
     id: "p3",
@@ -55,7 +55,7 @@ const projects: Project[] = [
     link: "https://github.com/robertocrivera/sistema-evaluacion-analitica",
     preview: "https://robertocrivera.github.io/sistema-evaluacion-analitica/",
     status: "Producción",
-    metrics: { views: "6.1k", runs: "310", score: "98.5%" },
+    initialMetrics: { views: 0, runs: 0, score: "100%" },
   },
   {
     id: "p4",
@@ -68,7 +68,7 @@ const projects: Project[] = [
     link: "https://github.com/robertocrivera/sql-relational-engine",
     preview: "https://robertocrivera.github.io/sql-relational-engine/",
     status: "Producción",
-    metrics: { views: "8.4k", runs: "450", score: "99.8%" },
+    initialMetrics: { views: 0, runs: 0, score: "100%" },
   }
 ];
 ---
@@ -76,7 +76,6 @@ const projects: Project[] = [
 <section id="projects" class="py-16 border-t border-[#ffffff10] text-slate-100">
   <div class="max-w-6xl mx-auto px-4 space-y-8">
     
-    <!-- Encabezado de la Galería -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 border-b border-white/10 pb-6">
       <div>
         <div class="flex items-center gap-2 mb-2">
@@ -86,7 +85,6 @@ const projects: Project[] = [
         <h3 class="text-3xl md:text-4xl font-bold tracking-tight text-white">Catálogo de Proyectos</h3>
       </div>
 
-      <!-- Barra de Filtro de Categorías Estilo CodePen -->
       <div class="flex items-center p-1 rounded-xl bg-[#121622] border border-white/10 text-xs font-mono">
         <button data-filter="all" class="filter-tab active px-3.5 py-1.5 rounded-lg font-semibold transition cursor-pointer">
           Todos (4)
@@ -103,15 +101,15 @@ const projects: Project[] = [
       </div>
     </div>
 
-    <!-- Grid de Tarjetas Estilo Showcase / CodePen -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-container">
       {
         projects.map((project) => (
           <article 
+            id={`card-${project.id}`}
+            data-project-id={project.id}
             data-category={project.categorySlug}
             class="project-item group bg-[#131722] hover:bg-[#171c2b] border border-white/10 hover:border-white/20 rounded-2xl p-4 transition-all duration-300 flex flex-col justify-between shadow-lg"
           >
-            <!-- Cabecera de la Tarjeta (Icono + Título + Links rápidos) -->
             <div class="space-y-3">
               <div class="flex items-center justify-between gap-3">
                 <div class="flex items-center gap-2.5 min-w-0">
@@ -128,8 +126,9 @@ const projects: Project[] = [
                     href={project.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
+                    data-track-run={project.id}
                     title="Ver Código en GitHub"
-                    class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition"
+                    class="track-action p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                   </a>
@@ -137,20 +136,21 @@ const projects: Project[] = [
                     href={project.preview} 
                     target="_blank" 
                     rel="noopener noreferrer"
+                    data-track-run={project.id}
                     title="Abrir Demostración en Vivo"
-                    class="p-1.5 rounded-lg text-slate-400 hover:text-[var(--sec)] hover:bg-white/10 transition"
+                    class="track-action p-1.5 rounded-lg text-slate-400 hover:text-[var(--sec)] hover:bg-white/10 transition"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                   </a>
                 </div>
               </div>
 
-              <!-- Lienzo Central / Preview Frame -->
               <a 
                 href={project.preview} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="block relative aspect-[16/10] rounded-xl overflow-hidden bg-black/60 border border-white/5 group-hover:border-white/20 transition-all cursor-pointer"
+                data-track-run={project.id}
+                class="track-action block relative aspect-[16/10] rounded-xl overflow-hidden bg-black/60 border border-white/5 group-hover:border-white/20 transition-all cursor-pointer"
               >
                 <img 
                   src={project.image} 
@@ -166,30 +166,27 @@ const projects: Project[] = [
                 </span>
               </a>
 
-              <!-- Descripción Breve -->
               <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed pt-1">
                 {project.description}
               </p>
             </div>
 
-            <!-- Barra Inferior de Métricas & Badges (Estilo CodePen) -->
+            <!-- Métricas Reactivas Inicializadas -->
             <div class="flex items-center justify-between pt-4 mt-4 border-t border-white/5 text-[11px] font-mono text-slate-400">
-              <!-- Píldoras de Métricas -->
               <div class="flex items-center gap-3">
-                <span class="flex items-center gap-1 hover:text-slate-200 transition" title="Visitas / Impacto">
+                <span class="flex items-center gap-1 hover:text-slate-200 transition" title="Visitas / Interacciones">
                   <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                  {project.metrics.views}
+                  <span id={`views-${project.id}`}>{project.initialMetrics.views}</span>
                 </span>
-                <span class="flex items-center gap-1 hover:text-slate-200 transition" title="Ejecuciones / Tests">
+                <span class="flex items-center gap-1 hover:text-slate-200 transition" title="Aperturas de Demo o Código">
                   <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                  {project.metrics.runs}
+                  <span id={`runs-${project.id}`}>{project.initialMetrics.runs}</span>
                 </span>
                 <span class="flex items-center gap-1 text-[var(--sec)]" title="Score de Confiabilidad">
-                  <span>★</span> {project.metrics.score}
+                  <span>★</span> {project.initialMetrics.score}
                 </span>
               </div>
 
-              <!-- Tags Técnicos -->
               <div class="flex items-center gap-1">
                 {project.tags.slice(0, 2).map((tag) => (
                   <span class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-slate-400 border border-white/5">
@@ -203,7 +200,6 @@ const projects: Project[] = [
       }
     </div>
 
-    <!-- Botón Inferior: Enlace al Perfil General -->
     <div class="pt-6 text-center">
       <a
         href="https://github.com/robertocrivera"
@@ -221,14 +217,14 @@ const projects: Project[] = [
   </div>
 </section>
 
-<!-- Script Reactivo para el Filtrado Dinámico por Categorías -->
+<!-- Manejador de Filtros y Contadores Reactivos -->
 <script is:inline>
+  // 1. Filtrado de Categorías
   const tabs = document.querySelectorAll('.filter-tab');
   const cards = document.querySelectorAll('.project-item');
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      // Estado visual activo
       tabs.forEach((t) => {
         t.classList.remove('active', 'bg-[var(--sec)]', 'text-slate-950');
         t.classList.add('text-slate-400');
@@ -237,8 +233,6 @@ const projects: Project[] = [
       tab.classList.remove('text-slate-400');
 
       const filterVal = tab.getAttribute('data-filter');
-
-      // Filtrado instantáneo de tarjetas
       cards.forEach((card) => {
         const cardCat = card.getAttribute('data-category');
         if (filterVal === 'all' || cardCat === filterVal) {
@@ -250,12 +244,44 @@ const projects: Project[] = [
     });
   });
 
-  // Activar la pestaña por defecto
   const defaultTab = document.querySelector('.filter-tab[data-filter="all"]');
   if (defaultTab) {
     defaultTab.classList.add('bg-[var(--sec)]', 'text-slate-950');
     defaultTab.classList.remove('text-slate-400');
   }
+
+  // 2. Activación y Persistencia de Métricas (Visitas y Clics)
+  const projectIds = ['p1', 'p2', 'p3', 'p4'];
+
+  projectIds.forEach((id) => {
+    // Incrementar visitas globales a la tarjeta
+    let views = parseInt(localStorage.getItem(`proj_views_${id}`) || '0', 10);
+    views += 1;
+    localStorage.setItem(`proj_views_${id}`, views.toString());
+
+    const viewEl = document.getElementById(`views-${id}`);
+    if (viewEl) viewEl.textContent = views.toString();
+
+    // Cargar ejecuciones acumuladas
+    const runs = parseInt(localStorage.getItem(`proj_runs_${id}`) || '0', 10);
+    const runsEl = document.getElementById(`runs-${id}`);
+    if (runsEl) runsEl.textContent = runs.toString();
+  });
+
+  // Incrementar ejecuciones al hacer clic en código o demo
+  document.querySelectorAll('.track-action').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const pid = btn.getAttribute('data-track-run');
+      if (pid) {
+        let currentRuns = parseInt(localStorage.getItem(`proj_runs_${pid}`) || '0', 10);
+        currentRuns += 1;
+        localStorage.setItem(`proj_runs_${pid}`, currentRuns.toString());
+
+        const runsEl = document.getElementById(`runs-${pid}`);
+        if (runsEl) runsEl.textContent = currentRuns.toString();
+      }
+    });
+  });
 </script>
 
 <style>
