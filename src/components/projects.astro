@@ -74,6 +74,8 @@ const projects: Project[] = [
     id: "p5",
     title: "RoverSim-3D • Simulador de Robótica Móvil",
     description: "Simulador interactivo 3D de robótica móvil marciana, percepción LIDAR en tiempo real, física de cuerpos rígidos y navegación programada con Three.js y Cannon-es.",
+    category: "Robótica & Simulación 3D",
+    categorySlug: "robotics",
     tags: ["Three.js", "Cannon-es", "Robotics", "Vite"],
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
     link: "https://github.com/robertocrivera/mover-sim-3d",
@@ -81,7 +83,6 @@ const projects: Project[] = [
     status: "Producción",
     initialMetrics: { views: 0, runs: 0, score: "100%" },
   }
-
 ];
 ---
 
@@ -99,18 +100,21 @@ const projects: Project[] = [
       </div>
 
       <!-- Barra de Filtro de Categorías -->
-      <div class="flex items-center p-1 rounded-xl bg-[#121622] border border-white/10 text-xs font-mono">
-        <button data-filter="all" class="filter-tab active px-3.5 py-1.5 rounded-lg font-semibold transition cursor-pointer">
-          Todos (4)
+      <div class="flex items-center p-1 rounded-xl bg-[#121622] border border-white/10 text-xs font-mono overflow-x-auto">
+        <button data-filter="all" class="filter-tab active px-3.5 py-1.5 rounded-lg font-semibold transition cursor-pointer shrink-0">
+          Todos (5)
         </button>
-        <button data-filter="edtech" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer">
+        <button data-filter="edtech" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer shrink-0">
           EdTech (2)
         </button>
-        <button data-filter="datascience" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer">
+        <button data-filter="datascience" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer shrink-0">
           Data Science (1)
         </button>
-        <button data-filter="database" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer">
+        <button data-filter="database" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer shrink-0">
           SQL & WASM (1)
+        </button>
+        <button data-filter="robotics" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer shrink-0">
+          Robótica 3D (1)
         </button>
       </div>
     </div>
@@ -183,7 +187,7 @@ const projects: Project[] = [
                 </span>
               </a>
 
-              <!-- Descripción con Mayor Tamaño y Visibilidad -->
+              <!-- Descripción -->
               <p class="text-sm text-slate-300 line-clamp-4 leading-relaxed pt-1">
                 {project.description}
               </p>
@@ -268,7 +272,8 @@ const projects: Project[] = [
     defaultTab.classList.remove('text-slate-400');
   }
 
-  const projectIds = ['p1', 'p2', 'p3', 'p4'];
+  // Se añade 'p5' a la reactividad de métricas locales
+  const projectIds = ['p1', 'p2', 'p3', 'p4', 'p5'];
   projectIds.forEach((id) => {
     let views = parseInt(localStorage.getItem(`proj_views_${id}`) || '0', 10);
     views += 1;
