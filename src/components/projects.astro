@@ -108,6 +108,19 @@ const projects: Project[] = [
     preview: "https://robertocrivera.github.io/lexiblox/",
     status: "Producción",
     initialMetrics: { views: 0, runs: 0, score: "100%" },
+  },
+  {
+    id: "p8",
+    title: "Portal de Videojuegos Educativos • Matemáticas & Lenguaje",
+    description: "Suite interactiva de 9 videojuegos web en HTML5 Canvas y Web Audio API para educación básica primaria (1.º a 4.º). Integra mecánicas arcade adaptativas (carrera espacial, defensa por carriles, laberinto, plataformas, pesca magnética y rompebloques), filtros curriculares del MEN y sincronización de perfiles en cliente.",
+    category: "EdTech & Game Dev",
+    categorySlug: "edtech",
+    tags: ["HTML5 Canvas", "Web Audio API", "Game Dev", "EdTech"],
+    image: "/images/P8.png",
+    link: "https://github.com/robertocrivera/Juegos-mat",
+    preview: "https://robertocrivera.github.io/Juegos-mat/",
+    status: "Producción",
+    initialMetrics: { views: 0, runs: 0, score: "100%" },
   }
 ];
 ---
@@ -128,10 +141,10 @@ const projects: Project[] = [
       <!-- Barra de Filtro de Categorías -->
       <div class="flex items-center p-1 rounded-xl bg-[#121622] border border-white/10 text-xs font-mono overflow-x-auto">
         <button data-filter="all" class="filter-tab active px-3.5 py-1.5 rounded-lg font-semibold transition cursor-pointer shrink-0">
-          Todos (7)
+          Todos (8)
         </button>
         <button data-filter="edtech" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer shrink-0">
-          EdTech (4)
+          EdTech (5)
         </button>
         <button data-filter="datascience" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer shrink-0">
           Data Science (1)
@@ -298,8 +311,8 @@ const projects: Project[] = [
     defaultTab.classList.remove('text-slate-400');
   }
 
-  // Se añade 'p7' a la reactividad de métricas locales
-  const projectIds = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7'];
+  // Se añade 'p8' a la reactividad de métricas locales
+  const projectIds = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8'];
   projectIds.forEach((id) => {
     let views = parseInt(localStorage.getItem(`proj_views_${id}`) || '0', 10);
     views += 1;
