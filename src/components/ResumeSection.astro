@@ -2,48 +2,82 @@
 // src/components/ResumeSection.astro
 const experience = [
   {
-    role: "Desarrollador de Software & Arquitecturas Web Interactivas",
-    company: "Desarrollo Independiente & Consultoría Digital",
-    period: "2023 - Presente",
-    summary: "Diseño y desarrollo de entornos interactivos en el navegador, motores de simulación 3D y aplicaciones cliente de alto rendimiento con WebAssembly y WebGL.",
+    role: "Consultor Tecnológico Senior & Arquitecturas Digitales",
+    company: "Consultoría Independiente & Soluciones Empresariales",
+    period: "2021 - Presente",
+    summary: "Asesoría estratégica en modernización tecnológica, ciberseguridad ofensiva/defensiva, análisis de datos y desarrollo de plataformas web interactivas.",
     achievements: [
-      "Diseño e implementación de RoverSim-3D: simulador robótico marciano en tiempo real con Three.js, física de cuerpos rígidos (Cannon-es) y sensor LIDAR.",
-      "Desarrollo del Laboratorio de Arquitectura Relacional con motor SQLite WASM en memoria para enseñanza de normalización (1FN-3FN) y validación semántica de consultas.",
-      "Creación de TypeHero 2.0: videojuego educativo de mecanografía adaptativa con Phaser 3 y síntesis de voz Web Speech API."
+      "Consultoría metodológica y técnica en proyectos de investigación científica, sistemas educativos y automatización de procesos mediante Python e Inteligencia Artificial.",
+      "Despliegue de dashboards de Business Intelligence (Power BI, modelado DAX, Power Pivot) para la optimización de toma de decisiones operativas y financieras.",
+      "Auditorías de seguridad de la información, análisis de vulnerabilidades (Pentesting con Kali Linux/Nmap) y buenas prácticas en infraestructura de red.",
+      "Desarrollo de portales web (WordPress, arquitecturas client-side seguras, Three.js y simulaciones interactivas en WebGL/WASM)."
     ]
   },
   {
-    role: "Analista de Datos & Soluciones Educativas Institucionales",
-    company: "Proyectos Analíticos & Formación Aplicada",
-    period: "2021 - 2023",
-    summary: "Construcción de dashboards de inteligencia de datos y pipelines de depuración analítica cuantitativa orientados a la toma de decisiones.",
+    role: "Consultor de TI & Líder de Proyecto Facturación Electrónica",
+    company: "Digiflow (Proyecto Exclusivo: REPSOL)",
+    period: "2018 - 2020",
+    summary: "Dirección técnica y homologación de sistemas de facturación electrónica de alta concurrencia bajo normativa SUNAT para la corporación REPSOL.",
     achievements: [
-      "Desarrollo de plataforma analítica institucional para gestión del Decreto 1290 (escala 1.0 a 5.0), alertas tempranas de deserción y procesamiento masivo con SheetJS.",
-      "Construcción de pipelines cuantitativos en Python (Pandas/SciPy) y R para pruebas de hipótesis, contrastes de significancia estadística y correlaciones.",
-      "Garantía de privacidad de datos bajo principios Zero-Leakage (procesamiento seguro íntegramente del lado del cliente)."
+      "Liderazgo en el despliegue, integración y monitoreo continuo de plataformas transaccionales de facturación electrónica de misión crítica.",
+      "Gestión de estabilidad operativa y resolución de incidentes de segundo y tercer nivel, garantizando cero interrupciones en la facturación fiscal masiva.",
+      "Implementación de nuevos proyectos satélites e integraciones de servicios tributarios en arquitecturas corporativas."
+    ]
+  },
+  {
+    role: "Consultor Funcional de TI",
+    company: "Cámara de Comercio de Lima (CCL)",
+    period: "2014 - 2018",
+    summary: "Implementación nacional de soluciones integrales de Facturación Electrónica (ESUITE) conectadas a los servicios de SUNAT.",
+    achievements: [
+      "Despliegue e integración del sistema ESUITE en plataformas Windows Server y motores de base de datos relacionales MS SQL Server y Oracle.",
+      "Acompañamiento funcional y capacitación especializada a usuarios clave en etapas de pre-producción, pase a producción y post-estabilización para medianas y grandes empresas."
+    ]
+  },
+  {
+    role: "IT Lead & Encargado de Sistemas e Infraestructura",
+    company: "SSK Montajes e Instalaciones / Consorcio Santos CMI",
+    period: "2010 - 2014",
+    summary: "Gestión integral de infraestructura TI y telecomunicaciones en proyectos mineros e industriales de gran envergadura (Kallpa, El Brocal, Chungar - Minera MARSA).",
+    achievements: [
+      "Diseño y despliegue de redes en obra remota: cableado estructurado, switches, firewalls perimetrales, enlaces y Access Points de alta disponibilidad.",
+      "Administración de servidores críticos (Active Directory, Exchange, FTP), políticas de seguridad perimetral y coordinación de pozos a tierra y protección atmosférica."
     ]
   }
 ];
 
 const education = [
   {
-    title: "Ingeniería / Especialización Continua en Software & Datos",
-    institution: "Formación Universitaria & Certificaciones Técnicas",
-    status: "Activo / En Evolución",
-    detail: "Especialización en arquitecturas frontend modernas, WebAssembly (WASM), modelado de datos relacionales y análisis estadístico."
+    title: "Licenciatura en Ingeniería Informática",
+    institution: "Formación Universitaria",
+    status: "Titulado",
+    detail: "Especialización en auditoría de sistemas de información, gestión de proyectos y desarrollo de arquitecturas tecnológicas corporativas."
   },
   {
-    title: "Modelado Relacional Avanzado & Bases de Datos",
-    institution: "Especialización Práctica",
+    title: "Ciberseguridad, Ethical Hacking & Auditoría",
+    institution: "EC-Council (CHFI v8) / BS Grupo / CetiAcademy",
     status: "Acreditado",
-    detail: "Normalización de esquemas relacionales, optimización de consultas B-Tree, lógica trivalente SQL y transacciones ACID."
+    detail: "Informática forense, pruebas de penetración (Pentesting), mitigación de vulnerabilidades y fundamentos de gobierno TI bajo COBIT 5."
+  },
+  {
+    title: "Certificación Internacional Cisco CCNA",
+    institution: "IT College (Buenos Aires, Argentina)",
+    status: "Acreditado",
+    detail: "Enrutamiento avanzado, switching, topologías de alta redundancia, direccionamiento IP y control de tráfico perimetral con ACLs."
+  },
+  {
+    title: "Business Intelligence & Analítica Aplicada",
+    institution: "Especialización Práctica / Continua",
+    status: "Acreditado",
+    detail: "Modelado relacional avanzado, funciones DAX, Power Pivot, Power BI y pipelines de análisis de datos con Python."
   }
 ];
 
 const technicalStrengths = [
-  { label: "Procesamiento Seguro Client-Side", desc: "Arquitecturas Zero-Leakage con SQLite WASM y sin fuga de datos sensibles." },
-  { label: "Entornos 3D y Gráficos Reactivos", desc: "Simulación de físicas, mallas y sensores mediante Three.js y WebGL." },
-  { label: "Rigor Metodológico & Estadística", desc: "Modelado formal con contrastes de significancia y análisis multivariante." }
+  { label: "Misión Crítica & Cumplimiento SUNAT", desc: "Años de experiencia integrando facturación electrónica y servicios tributarios de alta disponibilidad (Repsol, CCL)." },
+  { label: "Ciberseguridad & Infraestructura Robusta", desc: "Ethical Hacking, pentesting y administración sólida de servidores Linux/Windows y redes Cisco en entornos hostiles/obra." },
+  { label: "Analítica de Datos & Business Intelligence", desc: "Extracción y modelado con Power BI, DAX y Python para la toma de decisiones gerenciales y rigor estadístico." },
+  { label: "Desarrollo Web & Entornos Modernos", desc: "Despliegue de soluciones en WordPress, arquitecturas Zero-Leakage (SQLite WASM) y simulaciones gráficas en WebGL/Three.js." }
 ];
 ---
 
@@ -123,7 +157,7 @@ const technicalStrengths = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
             </svg>
-            <h3 class="text-lg font-bold text-white font-mono uppercase tracking-wider">Formación & Fundamentos</h3>
+            <h3 class="text-lg font-bold text-white font-mono uppercase tracking-wider">Formación & Certificaciones</h3>
           </div>
 
           <div class="space-y-3">
