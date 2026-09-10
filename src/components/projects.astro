@@ -82,6 +82,19 @@ const projects: Project[] = [
     preview: "https://robertocrivera.github.io/mover-sim-3d/",
     status: "Producción",
     initialMetrics: { views: 0, runs: 0, score: "100%" },
+  },
+  {
+    id: "p6",
+    title: "TypeHero 2.0 • Entrenador de Mecanografía Gamificado",
+    description: "Videojuego educativo 2D para aprendizaje táctil del teclado. Integra síntesis de voz Web Speech API, analítica adaptativa de error por tecla, persistencia local y renderizado reactivo con Phaser 3.",
+    category: "EdTech & Game Dev",
+    categorySlug: "edtech",
+    tags: ["Phaser 3", "Web Speech API", "Game Dev", "EdTech"],
+    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=800&auto=format&fit=crop",
+    link: "https://github.com/robertocrivera/teclado-game",
+    preview: "https://robertocrivera.github.io/teclado-game/",
+    status: "Producción",
+    initialMetrics: { views: 0, runs: 0, score: "100%" },
   }
 ];
 ---
@@ -273,7 +286,7 @@ const projects: Project[] = [
   }
 
   // Se añade 'p5' a la reactividad de métricas locales
-  const projectIds = ['p1', 'p2', 'p3', 'p4', 'p5'];
+  const projectIds = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'];
   projectIds.forEach((id) => {
     let views = parseInt(localStorage.getItem(`proj_views_${id}`) || '0', 10);
     views += 1;
