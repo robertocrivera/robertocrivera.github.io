@@ -1,143 +1,216 @@
-<section id="contact" class="w-full py-16 border-t border-[#ffffff10] text-[var(--white)]">
-  <div class="max-w-5xl mx-auto px-4">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec font-mono">Contacto Profesional</h2>
-    <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-8">
-      Iniciemos una Conversación
-    </h3>
+---
+// src/components/contact.astro
+---
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-      <!-- INFORMACIÓN Y CANALES DIRECTOS -->
-      <div class="space-y-6 text-[var(--white-icon)]">
-        <p class="text-base md:text-lg leading-relaxed">
-          ¿Tienes una propuesta técnica, una iniciativa de desarrollo o requieres consultoría analítica y metodológica? Puedes escribirme mediante el formulario o contactarme directamente por mis canales oficiales.
+<section id="contact" class="w-full py-20 border-t border-white/10 text-[var(--white)] scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-4 space-y-12">
+    
+    <!-- Encabezado de la sección -->
+    <div>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        <h2 class="text-xs font-mono uppercase tracking-widest text-cyan-400 font-semibold">
+          Canales Oficiales
+        </h2>
+      </div>
+      <h3 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+        Iniciemos una Conversación
+      </h3>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- Columna 1: Información y Canales Directos (5 columnas) -->
+      <div class="lg:col-span-5 space-y-8">
+        <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+          ¿Tienes una iniciativa de desarrollo, un proyecto que requiera arquitecturas client-side seguras o consultoría analítica y metodológica? Puedes escribirme mediante el formulario o contactarme directamente a través de mis canales técnicos.
         </p>
 
-        <div class="space-y-3 pt-2">
-          <div class="flex items-center gap-3">
-            <span class="text-[var(--sec)]">📍</span>
-            <span class="text-[var(--white-icon)]">Ubicación:</span>
-            <span class="text-[var(--white)] font-medium">Colombia (Disponible para trabajo remoto / global)</span>
+        <!-- Bloque de Metadatos Bento -->
+        <div class="space-y-3 font-mono text-xs">
+          <div class="flex items-center gap-3 p-3.5 rounded-xl bg-[#121622] border border-white/10">
+            <span class="text-lg">📍</span>
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase">Ubicación</span>
+              <span class="text-white font-medium">Colombia (Remoto global / Consultoría)</span>
+            </div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <span class="text-[var(--sec)]">💼</span>
-            <span class="text-[var(--white-icon)]">Modalidad:</span>
-            <span class="text-[var(--white)] font-medium">Consultoría, desarrollo de software y análisis de datos</span>
+          <div class="flex items-center gap-3 p-3.5 rounded-xl bg-[#121622] border border-white/10">
+            <span class="text-lg">💼</span>
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase">Modalidad</span>
+              <span class="text-white font-medium">Software Web, Modelado Cuantitativo y WASM</span>
+            </div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <span class="text-[var(--sec)]">💻</span>
-            <span class="text-[var(--white-icon)]">GitHub:</span>
-            <a 
-              href="https://github.com/robertocrivera" 
-              target="_blank" 
-              class="text-[var(--white)] hover:text-[var(--sec)] underline underline-offset-4 transition-colors"
-            >
-              github.com/robertocrivera
-            </a>
+          <div class="flex items-center gap-3 p-3.5 rounded-xl bg-[#121622] border border-white/10">
+            <span class="text-lg">💻</span>
+            <div>
+              <span class="text-slate-400 block text-[10px] uppercase">Repositorio</span>
+              <a 
+                href="https://github.com/robertocrivera" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-cyan-400 hover:underline transition"
+              >
+                github.com/robertocrivera
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="pt-4">
+        <!-- Botón de apertura directa del cliente de correo -->
+        <div class="pt-2">
           <a
-            href="mailto:robertocriverav@gmail.com"
-            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#1414149c] border border-[var(--white-icon-tr)] text-[var(--white)] hover:bg-[var(--white-icon-tr)] hover:scale-105 transition duration-300"
+            href="mailto:robertocriveraval@gmail.com"
+            class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-[#121622] border border-white/10 text-white hover:border-cyan-400/50 hover:bg-white/5 transition duration-300 text-xs font-mono group"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 text-[var(--sec)]">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform">
               <path d="m18.73 5.41l-1.28 1L12 10.46L6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"></path>
             </svg>
-            <span>Escribir por correo directo</span>
+            <span>robertocriveraval@gmail.com</span>
           </a>
         </div>
       </div>
 
-      <!-- FORMULARIO DE CONTACTO -->
-      <div class="bg-[#14141460] border border-[var(--white-icon-tr)] p-6 md:p-8 rounded-2xl">
+      <!-- Columna 2: Formulario con Fallback y Validaciones (7 columnas) -->
+      <div class="lg:col-span-7 bg-[#0f141f] border border-white/10 p-6 sm:p-8 rounded-2xl shadow-xl">
         <form
           id="contact-form"
           action="https://formspree.io/f/YOUR_FORM_ID_HERE"
           method="POST"
-          class="flex flex-col gap-4"
+          class="flex flex-col gap-4 text-xs font-mono"
         >
           <div>
-            <label for="from_name" class="block text-xs font-mono text-[var(--white-icon)] mb-1">Nombre</label>
+            <label for="from_name" class="block text-slate-400 mb-1.5 uppercase tracking-wider text-[11px]">
+              Nombre o Entidad
+            </label>
             <input
               id="from_name"
               type="text"
-              name="from_name"
-              placeholder="Tu nombre o empresa"
+              name="name"
+              placeholder="Ej: Sofía Gómez / Entidad Tecnológica"
               required
-              class="w-full px-4 py-2.5 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--sec)] transition-all"
+              class="w-full px-4 py-3 bg-[#161c2b] text-white border border-white/10 rounded-xl focus:outline-none focus:border-cyan-400 transition"
             />
           </div>
 
           <div>
-            <label for="reply_to" class="block text-xs font-mono text-[var(--white-icon)] mb-1">Correo electrónico</label>
+            <label for="reply_to" class="block text-slate-400 mb-1.5 uppercase tracking-wider text-[11px]">
+              Correo Electrónico
+            </label>
             <input
               id="reply_to"
               type="email"
-              name="reply_to"
+              name="email"
               placeholder="tu-correo@ejemplo.com"
               required
-              class="w-full px-4 py-2.5 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--sec)] transition-all"
+              class="w-full px-4 py-3 bg-[#161c2b] text-white border border-white/10 rounded-xl focus:outline-none focus:border-cyan-400 transition"
             />
           </div>
 
           <div>
-            <label for="message" class="block text-xs font-mono text-[var(--white-icon)] mb-1">Mensaje</label>
+            <label for="message" class="block text-slate-400 mb-1.5 uppercase tracking-wider text-[11px]">
+              Detalle del Proyecto o Consulta
+            </label>
             <textarea
               id="message"
               name="message"
-              placeholder="Cuéntame sobre tu proyecto o consulta técnica..."
+              placeholder="Cuéntame sobre tu proyecto, simulación o asesoría técnica..."
               rows="5"
               required
-              class="w-full px-4 py-2.5 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--sec)] resize-none transition-all"
+              class="w-full px-4 py-3 bg-[#161c2b] text-white border border-white/10 rounded-xl focus:outline-none focus:border-cyan-400 resize-none font-sans text-xs transition"
             ></textarea>
           </div>
 
           <button
+            id="btn-submit"
             type="submit"
-            class="w-full mt-2 py-3 bg-[var(--sec)] text-black font-semibold rounded-xl hover:opacity-90 hover:scale-[1.01] transition-all duration-300 shadow-md shadow-[#a476ff]/20"
+            class="w-full mt-2 py-3.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs font-mono rounded-xl transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2 cursor-pointer"
           >
-            Enviar Mensaje
+            <span id="btn-text">Enviar Mensaje</span>
+            <span id="btn-spinner" class="hidden animate-spin">⚪</span>
           </button>
         </form>
 
+        <!-- Feedback Dinámico de Confirmación -->
         <div
-          id="form-message"
-          class="hidden text-center p-6 border border-emerald-500/30 bg-emerald-500/10 rounded-xl mt-4 text-emerald-300 text-base"
+          id="form-success"
+          class="hidden p-6 border border-emerald-500/30 bg-emerald-950/20 rounded-xl mt-4 text-center space-y-1"
         >
-          ✅ ¡Gracias por tu mensaje! Me pondré en contacto contigo a la brevedad.
+          <p class="text-emerald-400 font-bold text-sm">✅ ¡Mensaje transmitido con éxito!</p>
+          <p class="text-slate-400 text-xs font-sans">Estaré en contacto contigo a la brevedad posible.</p>
+        </div>
+
+        <div
+          id="form-fallback"
+          class="hidden p-4 border border-cyan-500/30 bg-cyan-950/20 rounded-xl mt-4 text-center text-xs text-cyan-300 font-sans"
+        >
+          Conectando con tu gestor de correo predeterminado...
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<script type="module" is:inline>
+<script is:inline>
   const form = document.getElementById("contact-form");
-  const formMessage = document.getElementById("form-message");
+  const formSuccess = document.getElementById("form-success");
+  const formFallback = document.getElementById("form-fallback");
+  const btnSubmit = document.getElementById("btn-submit");
+  const btnText = document.getElementById("btn-text");
+  const btnSpinner = document.getElementById("btn-spinner");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-      if (response.ok) {
-        form.reset();
-        form.style.display = "none";
-        formMessage.classList.remove("hidden");
-      } else {
-        alert("Para enviar por este formulario se requiere configurar un ID de Formspree. También puedes usar el botón de correo directo.");
+      const formData = new FormData(form);
+      const name = formData.get("name") || "";
+      const email = formData.get("email") || "";
+      const message = formData.get("message") || "";
+
+      btnSubmit.disabled = true;
+      btnText.textContent = "Procesando envío...";
+      btnSpinner.classList.remove("hidden");
+
+      // Si Formspree mantiene el placeholder por defecto, redirige por mailto nativo
+      if (form.action.includes("YOUR_FORM_ID_HERE")) {
+        formFallback.classList.remove("hidden");
+        const mailtoUrl = `mailto:robertocriveraval@gmail.com?subject=Propuesta técnica de ${encodeURIComponent(name)}&body=${encodeURIComponent(`Nombre: ${name}\nCorreo: ${email}\n\nMensaje:\n${message}`)}`;
+
+        setTimeout(() => {
+          window.location.href = mailtoUrl;
+          btnSubmit.disabled = false;
+          btnText.textContent = "Enviar Mensaje";
+          btnSpinner.classList.add("hidden");
+        }, 600);
+        return;
       }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Hubo un problema al enviar. Puedes contactarme directamente por correo.");
-    }
-  });
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (response.ok) {
+          form.reset();
+          form.classList.add("hidden");
+          formSuccess.classList.remove("hidden");
+        } else {
+          throw new Error("Respuesta no satisfactoria del servicio");
+        }
+      } catch (err) {
+        window.location.href = `mailto:robertocriveraval@gmail.com?subject=Contacto Portafolio - ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}`;
+      } finally {
+        btnSubmit.disabled = false;
+        btnText.textContent = "Enviar Mensaje";
+        btnSpinner.classList.add("hidden");
+      }
+    });
+  }
 </script>
