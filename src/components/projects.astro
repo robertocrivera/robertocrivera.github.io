@@ -121,6 +121,19 @@ const projects: Project[] = [
     preview: "https://robertocrivera.github.io/Juegos-mat/",
     status: "Producción",
     initialMetrics: { views: 0, runs: 0, score: "100%" },
+  },
+  {
+    id: "p9",
+    title: "Plataforma Demográfica & Proyección de Demanda Escolar",
+    description: "Sistema analítico interactivo para el diagnóstico territorial del descenso de la natalidad en Colombia (2015-2024, -29%). Modela trayectorias prospectivas hasta 2050, proyecta la demanda de matrícula escolar por cohortes (T+6, T+11, T+16) y triangula sedes educativas oficiales del MEN mediante Streamlit, Python, Calamine y Plotly.",
+    category: "Data Science & Python",
+    categorySlug: "datascience",
+    tags: ["Streamlit", "Python", "Plotly", "Calamine"],
+    image: "/images/P9.png",
+    link: "https://github.com/robertocrivera/plataforma-demografica-estudiantil",
+    preview: "/images/P9_gif.gif",
+    status: "Producción",
+    initialMetrics: { views: 0, runs: 0, score: "100%" },
   }
 ];
 ---
@@ -141,13 +154,13 @@ const projects: Project[] = [
       <!-- Barra de Filtro de Categorías -->
       <div class="flex items-center p-1 rounded-xl bg-[#121622] border border-white/10 text-xs font-mono overflow-x-auto">
         <button data-filter="all" class="filter-tab active px-3.5 py-1.5 rounded-lg font-semibold transition cursor-pointer shrink-0">
-          Todos (8)
+          Todos (9)
         </button>
         <button data-filter="edtech" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer shrink-0">
           EdTech (5)
         </button>
         <button data-filter="datascience" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer shrink-0">
-          Data Science (1)
+          Data Science (2)
         </button>
         <button data-filter="database" class="filter-tab px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition cursor-pointer shrink-0">
           SQL & WASM (1)
@@ -311,8 +324,8 @@ const projects: Project[] = [
     defaultTab.classList.remove('text-slate-400');
   }
 
-  // Se añade 'p8' a la reactividad de métricas locales
-  const projectIds = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8'];
+  // Se añaden 'p8' y 'p9' a la reactividad de métricas locales
+  const projectIds = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9'];
   projectIds.forEach((id) => {
     let views = parseInt(localStorage.getItem(`proj_views_${id}`) || '0', 10);
     views += 1;
